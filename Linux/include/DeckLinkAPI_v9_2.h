@@ -29,6 +29,8 @@
 #define BMD_DECKLINKAPI_v9_2_H
 
 #include "DeckLinkAPI.h"
+#include "DeckLinkAPI_v10_11.h"
+#include "DeckLinkAPIVideoInput_v11_5_1.h"
 
 
 // Interface ID Declarations
@@ -40,10 +42,10 @@
 
 /* Interface IDeckLinkInput - Created by QueryInterface from IDeckLink. */
 
-class IDeckLinkInput_v9_2 : public IUnknown
+class BMD_PUBLIC IDeckLinkInput_v9_2 : public IUnknown
 {
 public:
-    virtual HRESULT DoesSupportVideoMode (/* in */ BMDDisplayMode displayMode, /* in */ BMDPixelFormat pixelFormat, /* in */ BMDVideoInputFlags flags, /* out */ BMDDisplayModeSupport *result, /* out */ IDeckLinkDisplayMode **resultDisplayMode) = 0;
+	virtual HRESULT DoesSupportVideoMode (/* in */ BMDDisplayMode displayMode, /* in */ BMDPixelFormat pixelFormat, /* in */ BMDVideoInputFlags flags, /* out */ BMDDisplayModeSupport_v10_11 *result, /* out */ IDeckLinkDisplayMode **resultDisplayMode) = 0;
     virtual HRESULT GetDisplayModeIterator (/* out */ IDeckLinkDisplayModeIterator **iterator) = 0;
 
     virtual HRESULT SetScreenPreviewCallback (/* in */ IDeckLinkScreenPreviewCallback *previewCallback) = 0;
@@ -66,7 +68,7 @@ public:
     virtual HRESULT StopStreams (void) = 0;
     virtual HRESULT PauseStreams (void) = 0;
     virtual HRESULT FlushStreams (void) = 0;
-    virtual HRESULT SetCallback (/* in */ IDeckLinkInputCallback *theCallback) = 0;
+    virtual HRESULT SetCallback (/* in */ IDeckLinkInputCallback_v11_5_1 *theCallback) = 0;
 
     /* Hardware Timing */
 
